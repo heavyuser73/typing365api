@@ -1,6 +1,7 @@
 package xyz.typing365;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,6 +17,7 @@ public class VisitCountController {
 
     private VisitCount visitCount = new VisitCount();
 
+    @CrossOrigin("*")
     @RequestMapping(value = "/visitCount", method = GET)
     public HashMap<String, Object> visitCount() {
         long lCount = visitCount.getCounter(customerRepository);
